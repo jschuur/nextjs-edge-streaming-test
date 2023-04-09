@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function useStreamData() {
+export default function useStreamingData() {
   const [data, setData] = useState<string>('');
   const [isStreaming, setIsStreaming] = useState<boolean>(false);
 
