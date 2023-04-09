@@ -19,7 +19,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'auto' });
+    bottomRef.current?.scrollIntoView({ block: 'nearest', inline: 'start' });
   }, [data]);
 
   return (
@@ -27,9 +27,9 @@ export default function Home() {
       <h1 className='pb-8 text-2xl text-center'>Next.js Edge Function Streaming Test</h1>
       <form onSubmit={startStream}>
         <input
-          className='px-2 py-2 mr-4 border rounded-md border-violet-200 focus:outline-2 outline-violet-500'
+          className='w-24 px-2 py-2 mr-4 border rounded-md border-violet-200 focus:outline-2 outline-violet-500'
           type='text'
-          placeholder='how many words?'
+          placeholder='wordcount'
           defaultValue={wordCount}
           onChange={handleChange}
         />
@@ -42,10 +42,10 @@ export default function Home() {
           {isStreaming ? 'Streaming' : 'Start'}
         </button>
       </form>
-      <div className='w-full px-4 py-2 whitespace-pre-wrap border rounded-sm border-violet-50'>
+      <div className='w-full h-64 px-4 py-2 overflow-auto whitespace-pre-wrap border rounded-sm border-violet-50'>
         {data || 'Click Start to stream some data...'}
+        <div ref={bottomRef}></div>
       </div>
-      <div ref={bottomRef}></div>
     </main>
   );
 }

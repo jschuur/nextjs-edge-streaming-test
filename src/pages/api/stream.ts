@@ -2,7 +2,7 @@ import { LoremIpsum } from 'lorem-ipsum';
 
 const lorem = new LoremIpsum();
 
-const DELAY_PER_WORD = 30;
+const DELAY_PER_WORD = 20;
 
 export const config = {
   runtime: 'edge',
